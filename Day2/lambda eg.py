@@ -32,5 +32,21 @@ print(sorted_products)
 fruits =["apple","banana","kiwi","orange","pear"]
 filtered_fruits = list(filter(lambda x:len(x)>5,fruits))
 print(filtered_fruits)
+
+#example3
+vegetables=[("carrot",2.5),("Tomato",3.5),("cucumber",2.0),("potato",4.0)]
+expensive_vegetables =list(filter(lambda x:x[1]>3,vegetables))
+print(f"vegetables with price greater than 3:{expensive_vegetables}")
+
+#example4
+from datatime import datetime
+products=[
+    {"name":"Milk","expiry":"2025-01-05"}
+     {"name":"cheese","expiry":"2025-02-2"}
+      {"name":"butter","expiry":"2025-01-25"}
+]
+today=datetime.now().strftime('%y-%m-%d')
+expired_products =list(filter(lambda x:x['expiry']<today,products))
+print(expired_products)
        
 
