@@ -1,0 +1,163 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNOrLlvRDAX8XW+uASIaqpL",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Nadiyapathan/Advance_python/blob/main/day5\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "yd5t6Fx92GEy",
+        "outputId": "921db3ab-4f64-4f01-9691-f0fb73e6edfa"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "Simple Calculator\n",
+            "1. Addition\n",
+            "2. Subtraction\n",
+            "3. Multiplication\n",
+            "4. Division\n",
+            "5. Power\n",
+            "6. Exit\n",
+            "Choose an operation (1-6): 2\n",
+            "Enter first number: 21\n",
+            "Enter second number: 32\n",
+            "Result: -11.0\n",
+            "\n",
+            "Simple Calculator\n",
+            "1. Addition\n",
+            "2. Subtraction\n",
+            "3. Multiplication\n",
+            "4. Division\n",
+            "5. Power\n",
+            "6. Exit\n",
+            "Choose an operation (1-6): 25\n",
+            "Invalid choice! Please select a valid operation.\n",
+            "\n",
+            "Simple Calculator\n",
+            "1. Addition\n",
+            "2. Subtraction\n",
+            "3. Multiplication\n",
+            "4. Division\n",
+            "5. Power\n",
+            "6. Exit\n",
+            "Choose an operation (1-6): 5\n",
+            "Enter first number: 2\n",
+            "Enter second number: 6\n",
+            "Result: 64.0\n",
+            "\n",
+            "Simple Calculator\n",
+            "1. Addition\n",
+            "2. Subtraction\n",
+            "3. Multiplication\n",
+            "4. Division\n",
+            "5. Power\n",
+            "6. Exit\n",
+            "Choose an operation (1-6): 6\n",
+            "Exiting the program. Goodbye!\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Calculator class\n",
+        "class Calculator:\n",
+        "    def __init__(self):\n",
+        "        self.result = 0\n",
+        "\n",
+        "    def add(self, x, y):\n",
+        "        return x + y\n",
+        "\n",
+        "    def subtract(self, x, y):\n",
+        "        return x - y\n",
+        "\n",
+        "    def multiply(self, x, y):\n",
+        "        return x * y\n",
+        "\n",
+        "    def divide(self, x, y):\n",
+        "        try:\n",
+        "            return x / y\n",
+        "        except ZeroDivisionError:\n",
+        "            return \"Error: Division by zero is not allowed!\"\n",
+        "\n",
+        "    def power(self, x, y):\n",
+        "        return x ** y\n",
+        "\n",
+        "# Function to display menu\n",
+        "def display_menu():\n",
+        "    print(\"\\nSimple Calculator\")\n",
+        "    print(\"1. Addition\")\n",
+        "    print(\"2. Subtraction\")\n",
+        "    print(\"3. Multiplication\")\n",
+        "    print(\"4. Division\")\n",
+        "    print(\"5. Power\")\n",
+        "    print(\"6. Exit\")\n",
+        "\n",
+        "# Main function\n",
+        "def main():\n",
+        "    calculator = Calculator()\n",
+        "\n",
+        "    while True:\n",
+        "        display_menu()\n",
+        "        choice = input(\"Choose an operation (1-6): \")\n",
+        "\n",
+        "        if choice == '6':\n",
+        "            print(\"Exiting the program. Goodbye!\")\n",
+        "            break\n",
+        "\n",
+        "        if choice in ['1', '2', '3', '4', '5']:\n",
+        "            try:\n",
+        "                x = float(input(\"Enter first number: \"))\n",
+        "                y = float(input(\"Enter second number: \"))\n",
+        "            except ValueError:\n",
+        "                print(\"Invalid input! Please enter numeric values.\")\n",
+        "                continue\n",
+        "\n",
+        "            if choice == '1':\n",
+        "                print(f\"Result: {calculator.add(x, y)}\")\n",
+        "            elif choice == '2':\n",
+        "                print(f\"Result: {calculator.subtract(x, y)}\")\n",
+        "            elif choice == '3':\n",
+        "                print(f\"Result: {calculator.multiply(x, y)}\")\n",
+        "            elif choice == '4':\n",
+        "                print(f\"Result: {calculator.divide(x, y)}\")\n",
+        "            elif choice == '5':\n",
+        "                print(f\"Result: {calculator.power(x, y)}\")\n",
+        "        else:\n",
+        "            print(\"Invalid choice! Please select a valid operation.\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()"
+      ]
+    }
+  ]
+}
